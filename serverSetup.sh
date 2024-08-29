@@ -6,10 +6,14 @@ echo "\nInstalling MYSQL Apache and PHPmyAdmin Server"
 BLUE='\033[34m'
 NC='\033[0m' # No Color
 
-# Step 1: Update and Upgrade System Packages
+# Step 0: Update and Upgrade System Packages
 echo -e "${BLUE}Updating and upgrading system packages...${NC}"
 sudo apt-get update
 sudo apt-get upgrade -y
+
+# Step 1: Instal Github
+echo -e "${BLUE}Installing github...${NC}"
+sudo apt-get install git -y
 
 # Step 2: Install MariaDB (MySQL Alternative)
 echo -e "${BLUE}Installing MariaDB server and client...${NC}"
