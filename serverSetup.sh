@@ -52,10 +52,11 @@ echo -e "${BLUE}Configuring MySQL root user...${NC}"
 
 # Step 9: Modify User Permissions
 echo -e "${BLUE}Modify MYSQL user Permissions...${NC}"
-sudo mysql -u root"
+sudo mysql -u root <<EOF
 DROP USER IF EXISTS 'root'@'localhost';
 CREATE USER 'root'@'localhost' IDENTIFIED BY 'mypass';
-GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost';
-FLUSH PRIVILEGES;"
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+EOF
 
 echo -e "${BLUE}Installation complete. You now have a LAMP stack with phpMyAdmin configured on your Raspberry Pi.${NC}"
